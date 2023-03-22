@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/22 11:58:57 by asacchin          #+#    #+#             */
-/*   Updated: 2023/02/01 17:26:52 by asacchin         ###   ########.fr       */
+/*   Created: 2023/03/22 18:49:45 by asacchin          #+#    #+#             */
+/*   Updated: 2023/03/22 19:13:57 by asacchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-int	ft_atoi(const char *str)
+int	pa(t_stack *stack)
 {
-	int	i;
-	int	s;
-	int	res;
+	int	len;
 
-	i = 0;
-	s = 1;
-	res = 0;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t'
-		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	len = stack->len_a;
+	while (len > 0)
 	{
-		if (str[i] == '-')
-			s = -1;
-		i++;
+		stack->a[len] = stack->a[len - 1];
+		len--;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = (res * 10) + (str[i] - '0');
-		i++;
-	}
-	return (res * s);
+	return (1);
 }

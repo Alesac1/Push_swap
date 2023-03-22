@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/21 19:07:06 by asacchin          #+#    #+#             */
-/*   Updated: 2023/03/22 14:29:44 by asacchin         ###   ########.fr       */
+/*   Created: 2023/01/22 11:58:57 by asacchin          #+#    #+#             */
+/*   Updated: 2023/03/22 15:07:38 by asacchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_error(int *stack)
+int	ft_atoi(const char *str, int *stack)
 {
-	free(stack);
-	ft_printf("Error");
-	exit(0);
-}
-
-void	check_dup(int *a, int len)
-{
-	int	i;
-	int	j;
+	int			i;
+	int			s;
+	long int	res;
 
 	i = 0;
-	j = 1;
-	while (i < len)
-	{
-		while (j < len)
-		{
-			if (a[i] == a[j])
-				ft_error(a);
-			j++;
-		}
+	s = 1;
+	res = 0;
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
-		j = i + 1;
+	if (str[i] == '+')
+		i++;
+	else if (str[i] == '-')
+	{
+		s = -1;
+		i++;
 	}
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			ft_error(stack);
+		res = (res * 10) + (str[i] - '0');
+		i++;
+	}
+	return (res * s);
 }

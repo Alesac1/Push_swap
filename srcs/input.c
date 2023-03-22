@@ -6,7 +6,7 @@
 /*   By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:48:18 by asacchin          #+#    #+#             */
-/*   Updated: 2023/03/21 20:01:55 by asacchin         ###   ########.fr       */
+/*   Updated: 2023/03/22 14:49:10 by asacchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@ void	write_stack(int argc, char **argv, int i, t_stack *stack)
 
 	stack->a = (int *)malloc(sizeof(int) * (argc - 1));
 	stack->b = (int *)malloc(sizeof(int) * (argc - 1));
-
 	j = 0;
 	while (i < argc)
-		stack->a[j++] = ft_atoi(argv[i++]);
+		stack->a[j++] = ft_atoi(argv[i++], stack->a);
 	check_dup(stack->a, j);
 	stack->len_a = j;
 	stack->len_b = 0;
@@ -38,7 +37,7 @@ t_stack	*input_check(int argc, char **argv)
 	len = 0;
 	if (argc == 2)
 	{
-		tmp = ft_split(argv[1], ' ');
+		tmp = ft_split(argv[1], 32);
 		while (tmp[len] != NULL)
 			len++;
 		stack = malloc(len * sizeof(t_list));
@@ -54,4 +53,3 @@ t_stack	*input_check(int argc, char **argv)
 		return (NULL);
 	return (stack);
 }
-

@@ -6,11 +6,11 @@
 #    By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/21 16:01:01 by asacchin          #+#    #+#              #
-#    Updated: 2023/03/21 19:36:32 by asacchin         ###   ########.fr        #
+#    Updated: 2023/03/22 15:37:09 by asacchin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC =	srcs/check.c srcs/input.c srcs/push_swap.c
+SRC =	srcs/check.c srcs/input.c srcs/push_swap.c Utils/ft_atoi.c
 OBJ = ${SRC:.c=.o}
 NAME = push_swap
 
@@ -22,7 +22,7 @@ NAME = push_swap
 CC = gcc -Wall -Wextra -Werror -g
 FT_PRINTF = include/ft_printf
 LIBFT = include/Libft
-LIBRARY = include/ft_printf/libftprintf.a
+LIBRARY = include/ft_printf/libftprintf.a include/libft/libft.a
 
 .c.o:
 	@${CC} -c $< -o ${<:.c=.o}
