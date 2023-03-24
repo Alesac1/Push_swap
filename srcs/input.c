@@ -6,7 +6,7 @@
 /*   By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:48:18 by asacchin          #+#    #+#             */
-/*   Updated: 2023/03/22 14:49:10 by asacchin         ###   ########.fr       */
+/*   Updated: 2023/03/24 17:45:58 by asacchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ t_stack	*input_check(int argc, char **argv)
 	char	**tmp;
 	int		len;
 
-	tmp = NULL;
 	len = 0;
+	tmp = NULL;
 	if (argc == 2)
 	{
 		tmp = ft_split(argv[1], 32);

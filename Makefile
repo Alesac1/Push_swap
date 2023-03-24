@@ -6,11 +6,11 @@
 #    By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/21 16:01:01 by asacchin          #+#    #+#              #
-#    Updated: 2023/03/22 15:37:09 by asacchin         ###   ########.fr        #
+#    Updated: 2023/03/24 17:39:56 by asacchin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC =	srcs/check.c srcs/input.c srcs/push_swap.c Utils/ft_atoi.c
+SRC =	srcs/check.c srcs/input.c srcs/push_swap.c Utils/ft_atoi.c Moves/push.c Moves/swap.c Moves/rotate.c Moves/reverse_rotate.c
 OBJ = ${SRC:.c=.o}
 NAME = push_swap
 

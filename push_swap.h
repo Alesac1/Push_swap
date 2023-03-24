@@ -6,7 +6,7 @@
 /*   By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:30:57 by asacchin          #+#    #+#             */
-/*   Updated: 2023/03/22 14:54:42 by asacchin         ###   ########.fr       */
+/*   Updated: 2023/03/24 17:42:29 by asacchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,18 @@ typedef struct s_stack
 	int		moves;
 }				t_stack;
 
+t_stack	*input_check(int argc, char **argv);
 void	check_dup(int *a, int len);
 void	ft_error(int *stack);
 int		ft_atoi(const char *str, int *stack);
-t_stack	*input_check(int argc, char **argv);
+void	printstack(t_stack *stack);
+int		sa(t_stack *stack);
+int		sb(t_stack *stack);
+int		ss(t_stack *stack);
+int		pa(t_stack *stack);
+int		pb(t_stack *stack);
+int		ra(t_stack *stack);
+int		rb(t_stack *stack);
+int		rrr(t_stack *stack);
 
 #endif
