@@ -6,7 +6,7 @@
 /*   By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:30:57 by asacchin          #+#    #+#             */
-/*   Updated: 2023/03/24 17:42:29 by asacchin         ###   ########.fr       */
+/*   Updated: 2023/03/28 19:22:40 by asacchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,10 @@ int		pb(t_stack *stack);
 int		ra(t_stack *stack);
 int		rb(t_stack *stack);
 int		rrr(t_stack *stack);
+int		rra(t_stack *stack);
+void	maxint(t_stack *stack);
+void	sorting(t_stack *stack);
+int		checkseq(int *stack, int len_a);
+void	tresort(t_stack *stack);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 11:58:57 by asacchin          #+#    #+#             */
-/*   Updated: 2023/03/22 15:07:38 by asacchin         ###   ########.fr       */
+/*   Updated: 2023/03/28 15:56:36 by asacchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ int	ft_atoi(const char *str, int *stack)
 	{
 		if (!ft_isdigit(str[i]))
 			ft_error(stack);
-		res = (res * 10) + (str[i] - '0');
-		i++;
+		res = (res * 10) + (str[i++] - '0');
 	}
+	if (res > 2147483647 || res < -2147483647)
+		ft_error(stack);
 	return (res * s);
 }
