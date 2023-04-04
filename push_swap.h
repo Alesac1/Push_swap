@@ -6,7 +6,7 @@
 /*   By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:30:57 by asacchin          #+#    #+#             */
-/*   Updated: 2023/03/28 19:22:40 by asacchin         ###   ########.fr       */
+/*   Updated: 2023/04/04 18:03:43 by asacchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ typedef struct s_stack
 {
 	int		*a;
 	int		*b;
+	int		max_a;
+	int		min_a;
+	int		max_b;
+	int		min_b;
 	int		len_a;
 	int		len_b;
 	int		moves;
@@ -41,9 +45,11 @@ int		ra(t_stack *stack);
 int		rb(t_stack *stack);
 int		rrr(t_stack *stack);
 int		rra(t_stack *stack);
-void	maxint(t_stack *stack);
 void	sorting(t_stack *stack);
-int		checkseq(int *stack, int len_a);
 void	tresort(t_stack *stack);
+void	countindex(t_stack *stack);
+void	a_maxminint(t_stack *stack);
+void	b_maxminint(t_stack *stack);
+int		checkseq(int *stack, int len_a);
 
 #endif
