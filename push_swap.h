@@ -6,7 +6,7 @@
 /*   By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:30:57 by asacchin          #+#    #+#             */
-/*   Updated: 2023/04/04 18:03:43 by asacchin         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:01:08 by asacchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,18 @@ typedef struct s_stack
 	int		len_a;
 	int		len_b;
 	int		moves;
+	int		tot_moves;
+	int		minorindexnum_b;
+	int		minorindexnum_a;
 }				t_stack;
+
+typedef struct s_topush
+{
+	int	count_moves;
+	int	index_a;
+	int	index_b;
+	int	tmp_moves;
+}				t_topush;
 
 t_stack	*input_check(int argc, char **argv);
 void	check_dup(int *a, int len);
@@ -51,5 +62,6 @@ void	countindex(t_stack *stack);
 void	a_maxminint(t_stack *stack);
 void	b_maxminint(t_stack *stack);
 int		checkseq(int *stack, int len_a);
+void	move2num(t_stack *stack);
 
 #endif

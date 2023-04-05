@@ -6,7 +6,7 @@
 /*   By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 14:44:42 by asacchin          #+#    #+#             */
-/*   Updated: 2023/04/04 18:15:52 by asacchin         ###   ########.fr       */
+/*   Updated: 2023/04/05 14:21:56 by asacchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,7 @@ void	move2num(t_stack *stack)
 	pb(stack);
 }
 
-void	sort(t_stack *stack)
-{
-	a_maxminint(stack);
-	b_maxminint(stack);
-}
+// void	sort(t_stack *stack)
+// {
+
+// }
