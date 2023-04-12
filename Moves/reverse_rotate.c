@@ -6,13 +6,13 @@
 /*   By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 17:03:33 by asacchin          #+#    #+#             */
-/*   Updated: 2023/03/24 17:41:23 by asacchin         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:37:08 by asacchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	rra(t_stack *stack)
+void	rra(t_stack *stack, int f)
 {
 	int	tmp;
 	int	len;
@@ -25,11 +25,12 @@ int	rra(t_stack *stack)
 		len--;
 	}
 	stack->a[0] = tmp;
-	stack->moves++;
-	return (1);
+	if (f == 1)
+		ft_printf("rra\n");
+	stack->move++;
 }
 
-int	rrb(t_stack *stack)
+void	rrb(t_stack *stack, int f)
 {
 	int	tmp;
 	int	len;
@@ -42,17 +43,17 @@ int	rrb(t_stack *stack)
 		len--;
 	}
 	stack->b[0] = tmp;
-	stack->moves++;
-	return (1);
+	if (f == 1)
+		ft_printf("rrb\n");
+	stack->move++;
 }
 
-int	rrr(t_stack *stack)
+void	rrr(t_stack *stack, int f)
 {
 	int	tmp;
 	int	len;
 
 	tmp = stack->a[stack->len_a - 1];
-	ft_printf("tmp: %d\n", tmp);
 	len = stack->len_a;
 	while (len-- > 0)
 		stack->a[len] = stack->a[len - 1];
@@ -62,6 +63,7 @@ int	rrr(t_stack *stack)
 	while (len-- > 0)
 		stack->b[len] = stack->b[len - 1];
 	stack->b[0] = tmp;
-	stack->moves++;
-	return (1);
+	if (f == 1)
+		ft_printf("rrr\n");
+	stack->move++;
 }

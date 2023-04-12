@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_moves.c                                      :+:      :+:    :+:   */
+/*   cicle_a.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 14:09:51 by asacchin          #+#    #+#             */
-/*   Updated: 2023/04/05 19:05:16 by asacchin         ###   ########.fr       */
+/*   Updated: 2023/04/12 19:02:39 by asacchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,18 @@ void	cicle_a_in_b(t_stack *stack)
 	stack->tot_moves = 0;
 	while (i < stack->len_a)
 	{
-		stack->minorindexnum_b = find_minor_b(stack, i);
-		if (stack->minorindexnum_b == -1)
-			stack->minorindexnum_b = find_major_b(stack, i);
+		// printstack(stack);
+		stack->b_minindex = find_minor_b(stack, i);
+		if (stack->b_minindex == -1)
+			stack->b_minindex = find_major_b(stack, i);
+		a_spot_in_b(stack, i);
 		i++;
 	}
 }
 
 int	find_minor_b(t_stack *stack, int i)
 {
-	int	i;
+	int	j;
 	int	minor_index;
 
 	j = 0;
@@ -47,11 +49,41 @@ int	find_minor_b(t_stack *stack, int i)
 
 int	find_major_b(t_stack *stack, int i)
 {
-  	
+	int	j;
+	int	major_index;
+
+	j = 0;
+	major_index = -1;
+	while (j < stack->len_b)
+	{
+		if (stack->b[j] > stack->a[i]
+			&& (major_index == -1
+				|| stack->b[j] > stack->b[major_index]))
+			major_index = j;
+		j++;
+	}
+	return (major_index);
 }
 
-void	ft_count_moves(t_stack *stack)
+void	stacks_update(t_stack *stack)
 {
-	int	i;
-	
+	a_maxminint(stack);
+	b_maxminint(stack);
+	check_a_maxindex(stack);
+	check_a_minindex(stack);
+	check_b_maxindex(stack);
+	check_b_minindex(stack);
+	find_middle_stack(stack);
+}
+
+int	a_spot_in_b(t_stack *stack, int i)
+{
+	if (i < stack->half_a && stack->b_minindex < stack->half_b)
+		upper_half(stack, i);
+	else if (i >= stack->half_a && stack->b_minindex >= stack->half_b)
+		lower_half(stack, i);
+	else
+		different_half(stack, i);
+	stacks_update(stack);
+	return (0);
 }

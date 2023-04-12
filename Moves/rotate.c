@@ -6,13 +6,13 @@
 /*   By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:55:52 by asacchin          #+#    #+#             */
-/*   Updated: 2023/03/24 16:28:49 by asacchin         ###   ########.fr       */
+/*   Updated: 2023/04/12 16:02:25 by asacchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ra(t_stack *stack)
+void	ra(t_stack *stack, int f)
 {
 	int	tmp;
 	int	i;
@@ -24,11 +24,12 @@ int	ra(t_stack *stack)
 		stack->a[i] = stack->a[i + 1];
 	}
 	stack->a[i] = tmp;
-	stack->moves++;
-	return (1);
+	if (f == 1)
+		ft_printf("ra\n");
+	stack->move++;
 }
 
-int	rb(t_stack *stack)
+void	rb(t_stack *stack, int f)
 {
 	int	tmp;
 	int	i;
@@ -40,11 +41,12 @@ int	rb(t_stack *stack)
 		stack->b[i] = stack->b[i + 1];
 	}
 	stack->b[i] = tmp;
-	stack->moves++;
-	return (1);
+	if (f == 1)
+		ft_printf("rb\n");
+	stack->move++;
 }
 
-int	rr(t_stack *stack)
+void	rr(t_stack *stack, int f)
 {
 	int	tmp;
 	int	i;
@@ -59,6 +61,7 @@ int	rr(t_stack *stack)
 	while (++i < stack->len_b - 1)
 		stack->b[i] = stack->b[i + 1];
 	stack->b[i] = tmp;
-	stack->moves++;
-	return (1);
+	if (f == 1)
+		ft_printf("rr\n");
+	stack->move++;
 }

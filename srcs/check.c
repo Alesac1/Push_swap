@@ -6,17 +6,16 @@
 /*   By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 19:07:06 by asacchin          #+#    #+#             */
-/*   Updated: 2023/03/22 14:29:44 by asacchin         ###   ########.fr       */
+/*   Updated: 2023/04/12 16:43:00 by asacchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_error(int *stack)
+void	ft_error(void)
 {
-	free(stack);
-	ft_printf("Error");
-	exit(0);
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
 void	check_dup(int *a, int len)
@@ -31,7 +30,7 @@ void	check_dup(int *a, int len)
 		while (j < len)
 		{
 			if (a[i] == a[j])
-				ft_error(a);
+				ft_error();
 			j++;
 		}
 		i++;
