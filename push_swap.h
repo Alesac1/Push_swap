@@ -6,7 +6,7 @@
 /*   By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:30:57 by asacchin          #+#    #+#             */
-/*   Updated: 2023/04/12 18:44:20 by asacchin         ###   ########.fr       */
+/*   Updated: 2023/04/17 18:20:13 by asacchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,5 +109,12 @@ t_stack	*input_check(int argc, char **argv);
 void	ft_is_valid_num(char **av, int j);
 int		ft_free_mem(char **matrix, int f);
 void	ft_final_half_check(t_stack *stack);
+void	upper_half_a_utils(t_stack *stack, int i, int temp_moves);
+void	lower_half_a_utils(t_stack *stack, int i, int temp_moves);
+void	different_half_utils_a(t_stack *stack, int i, int temp_moves);
+void	upper_half_a(t_stack *stack, int i);
+void	lower_half_a(t_stack *stack, int i);
+void	different_half_a(t_stack *stack, int i);
+void	half_check(t_stack *stack);
 
 #endif

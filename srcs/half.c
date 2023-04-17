@@ -6,7 +6,7 @@
 /*   By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:38:40 by asacchin          #+#    #+#             */
-/*   Updated: 2023/04/12 19:19:30 by asacchin         ###   ########.fr       */
+/*   Updated: 2023/04/17 12:58:32 by asacchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	upper_half(t_stack *stack, int i)
 		temp_moves = stack->b_minindex;
 	else if (i < stack->b_minindex)
 		temp_moves = stack->b_minindex;
+	else if (i > stack->b_minindex)
+		temp_moves = i;
 	if ((temp_moves < stack->tot_moves) || (i == 0))
 		upper_half_utils_b(stack, i, temp_moves);
 }
@@ -42,7 +44,7 @@ void	upper_half_a(t_stack *stack, int i)
 
 void	lower_half(t_stack *stack, int i)
 {
-	int temp_moves;
+	int	temp_moves;
 
 	temp_moves = 0;
 	if ((stack->len_a - i) == (stack->len_b - stack->b_minindex))
@@ -53,6 +55,21 @@ void	lower_half(t_stack *stack, int i)
 		temp_moves = stack->len_a - i;
 	if ((temp_moves < stack->tot_moves) || (i == 0))
 		lower_half_utils_b(stack, i, temp_moves);
+}
+
+void	lower_half_a(t_stack *stack, int i)
+{
+	int	temp_moves;
+
+	temp_moves = 0;
+	if ((stack->len_b - i) == (stack->len_a - stack->a_minindex))
+		temp_moves = stack->len_a - stack->a_minindex;
+	else if ((stack->len_b - i) < (stack->len_a - stack->a_minindex))
+		temp_moves = stack->len_a - stack->a_minindex;
+	else if ((stack->len_b - i) > (stack->len_a - stack->a_minindex))
+		temp_moves = stack->len_b - i;
+	if ((temp_moves < stack->tot_moves) || (i == 0))
+		lower_half_a_utils(stack, i, temp_moves);
 }
 
 void	different_half(t_stack *stack, int i)
@@ -68,4 +85,19 @@ void	different_half(t_stack *stack, int i)
 		temp_moves = stack->b_minindex + (stack->len_a - i);
 	if ((temp_moves < stack->tot_moves) || (i == 0))
 		different_half_utils_b(stack, i, temp_moves);
+}
+
+void	different_half_a(t_stack *stack, int i)
+{
+	int	temp_moves;
+
+	temp_moves = 0;
+	if (i < stack->half_b && stack->a_minindex
+		>= stack->half_a)
+		temp_moves = i + (stack->len_a - stack->a_minindex);
+	else if (i >= stack->half_b && stack->a_minindex
+		< stack->half_a)
+		temp_moves = stack->a_minindex + (stack->len_b - i);
+	if ((temp_moves < stack->tot_moves) || (i == 0))
+		different_half_utils_a(stack, i, temp_moves);
 }

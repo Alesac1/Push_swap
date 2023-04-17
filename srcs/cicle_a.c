@@ -6,7 +6,7 @@
 /*   By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 14:09:51 by asacchin          #+#    #+#             */
-/*   Updated: 2023/04/12 19:02:39 by asacchin         ###   ########.fr       */
+/*   Updated: 2023/04/17 12:54:40 by asacchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	cicle_a_in_b(t_stack *stack)
 	stack->tot_moves = 0;
 	while (i < stack->len_a)
 	{
-		// printstack(stack);
 		stack->b_minindex = find_minor_b(stack, i);
 		if (stack->b_minindex == -1)
 			stack->b_minindex = find_major_b(stack, i);
@@ -78,6 +77,7 @@ void	stacks_update(t_stack *stack)
 
 int	a_spot_in_b(t_stack *stack, int i)
 {
+	stacks_update(stack);
 	if (i < stack->half_a && stack->b_minindex < stack->half_b)
 		upper_half(stack, i);
 	else if (i >= stack->half_a && stack->b_minindex >= stack->half_b)

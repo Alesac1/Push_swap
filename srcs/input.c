@@ -6,7 +6,7 @@
 /*   By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:48:18 by asacchin          #+#    #+#             */
-/*   Updated: 2023/04/12 18:04:08 by asacchin         ###   ########.fr       */
+/*   Updated: 2023/04/17 18:43:09 by asacchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	write_stack(int argc, char **argv, int i, t_stack *stack)
 		stack->a[j++] = ft_atoi(argv[i++], stack->a);
 	check_dup(stack->a, j);
 	stack->len_a = j;
-	// ft_printf("j%d\n", j);
 	stack->len_b = 0;
 	stack->move = 0;
 }

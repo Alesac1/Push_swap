@@ -6,7 +6,7 @@
 /*   By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:55:52 by asacchin          #+#    #+#             */
-/*   Updated: 2023/04/12 16:02:25 by asacchin         ###   ########.fr       */
+/*   Updated: 2023/04/17 18:27:08 by asacchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ void	ra(t_stack *stack, int f)
 	i = -1;
 	tmp = stack->a[0];
 	while (++i < stack->len_a - 1)
-	{
 		stack->a[i] = stack->a[i + 1];
-	}
 	stack->a[i] = tmp;
 	if (f == 1)
 		ft_printf("ra\n");
@@ -37,9 +35,7 @@ void	rb(t_stack *stack, int f)
 	i = -1;
 	tmp = stack->a[0];
 	while (++i < stack->len_b - 1)
-	{
 		stack->b[i] = stack->b[i + 1];
-	}
 	stack->b[i] = tmp;
 	if (f == 1)
 		ft_printf("rb\n");

@@ -6,7 +6,7 @@
 /*   By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 16:59:34 by asacchin          #+#    #+#             */
-/*   Updated: 2023/04/12 17:26:57 by asacchin         ###   ########.fr       */
+/*   Updated: 2023/04/17 17:40:23 by asacchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	cicle_b_in_a(t_stack *stack)
 	stack->tot_moves = 0;
 	while (i < stack->len_b)
 	{
-		stack->a_minindex = find_minor_a(stack, i);
+		stack->a_minindex = find_major_a(stack, i);
 		if (stack->a_minindex == -1)
-			stack->a_minindex = find_major_b(stack, i);
+			stack->a_minindex = find_minor_a(stack, i);
 		b_spot_in_a(stack, i);
 		i++;
 	}
@@ -66,14 +66,15 @@ int	find_major_a(t_stack *stack, int i)
 
 int	b_spot_in_a(t_stack *stack, int i)
 {
-	if (i < stack->half_a && stack->b_minindex
-		< stack->half_b)
-		upper_half(stack, i);
-	else if (i >= stack->half_a && stack->b_minindex
-		>= stack->half_b)
-		lower_half(stack, i);
+	stacks_update(stack);
+	if (i < stack->half_b && stack->a_minindex
+		< stack->half_a)
+		upper_half_a(stack, i);
+	else if (i >= stack->half_b && stack->a_minindex
+		>= stack->half_a)
+		lower_half_a(stack, i);
 	else
-		different_half(stack, i);
+		different_half_a(stack, i);
 	stacks_update(stack);
 	return (0);
 }

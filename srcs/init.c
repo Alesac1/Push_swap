@@ -6,7 +6,7 @@
 /*   By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 15:11:58 by asacchin          #+#    #+#             */
-/*   Updated: 2023/04/12 18:04:04 by asacchin         ###   ########.fr       */
+/*   Updated: 2023/04/17 18:43:13 by asacchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int	initialize_val(t_stack *stack)
 	stack->max_b = 0;
 	stack->min_b = 0;
 	stack->len_b = 0;
-	// ft_printf("ciao\n");
 	return (0);
 }
 

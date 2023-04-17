@@ -6,7 +6,7 @@
 /*   By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 17:04:54 by asacchin          #+#    #+#             */
-/*   Updated: 2023/04/12 16:19:45 by asacchin         ###   ########.fr       */
+/*   Updated: 2023/04/17 18:29:43 by asacchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	sb(t_stack *stack, int f)
 	int	tmp;
 
 	tmp = 0;
-	if (!stack->b[0] || !stack->b[1])
+	if (stack->len_b == 0 || stack->len_b == 1)
 		return ;
 	tmp = stack->b[0];
 	stack->b[0] = stack->b[1];
