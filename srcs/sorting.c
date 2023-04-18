@@ -6,7 +6,7 @@
 /*   By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 14:44:42 by asacchin          #+#    #+#             */
-/*   Updated: 2023/04/17 18:30:48 by asacchin         ###   ########.fr       */
+/*   Updated: 2023/04/18 14:09:41 by asacchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	sortnum(t_stack *stack)
 			cicle_a_in_b(stack);
 			sorting(stack, 0);
 		}
-		printstack(stack);
 		tresort(stack);
 		while (stack->len_b > 0)
 		{

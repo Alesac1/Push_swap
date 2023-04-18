@@ -6,7 +6,7 @@
 /*   By: asacchin <alesacchi1907@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:48:18 by asacchin          #+#    #+#             */
-/*   Updated: 2023/04/17 18:43:09 by asacchin         ###   ########.fr       */
+/*   Updated: 2023/04/18 15:12:18 by asacchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,14 @@ t_stack	*input_check(int argc, char **argv)
 		while (tmp[len] != NULL)
 			len++;
 		stack = malloc(len * sizeof(t_list));
+		stack->len_a = len;
 		write_stack(len, tmp, 0, stack);
 		free(tmp);
 	}
 	else if (argc >= 3)
 	{
 		stack = malloc((argc - 1) * sizeof (t_list));
+		stack->len_a = argc - 1;
 		write_stack(argc, argv, 1, stack);
 	}
 	else
